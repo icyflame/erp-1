@@ -161,10 +161,11 @@ class membermodel extends CI_Model{
 				$data['profile'].='<br><input type="submit" name="submit" value="Update" class="btn btn-success"></form></div></div>';
 			}
 			$query = $this->db->get_where('status',array('alumid'=>$id));
+			$q = $query->row_array();
 				if($query->num_rows()>0){
 					$data['searchstatus'] = "Current Status: ";
 					//$this->table->set_heading(array('id','search status','call status','register status','pay status','userid','year'));
-					switch ($query->row_array()['search']) {
+					switch ($q['search']) {
 						case '0':
 							$data['searchstatus'] .= "Yet to be searched";
 							break;
@@ -185,7 +186,7 @@ class membermodel extends CI_Model{
 					$data['searchstatus'].='<br><input type="submit" name="submit" value="Update" class="btn btn-success"></form>';
 
 					$data['responsestatus'] = "Current Staus: ";
-					switch ($query->row_array()['called']) {
+					switch ($q['called']) {
 						case '0':
 							$data['responsestatus'] .="Not called";
 							break;
@@ -213,7 +214,7 @@ class membermodel extends CI_Model{
 					$data['paymentstatus'] = "Current Staus: ";
 
 				
-					switch ($query->row_array()['pay']) {
+					switch ($q['pay']) {
 						case '0':
 							$data['paymentstatus'] .="Not Paid";
 							break;
@@ -260,7 +261,7 @@ class membermodel extends CI_Model{
 					$data['registerstatus'] = 'Current Staus: ';
 					$query = $this->db->get_where('status',array('alumid'=>$id));
 
-					switch ($query->row_array()['register']) {
+					switch ($q['register']) {
 						case '0':
 							$data['registerstatus'] .='Not registered<br>';
 							$data['registerstatus'] .= '<form name="form5" action="Javascript:updateRegister()"><input type="text" name="alumid" value="'.$id.'" disabled>';
