@@ -207,7 +207,7 @@ class membermodel extends CI_Model{
 
 					$data['responsestatus'] .= 'Alumid<input  name="alumid" value="'.$id.'" disabled><br>';
 
-					$data['responsestatus'] .= '<div class="radio-inline"><input type="radio" name="response" value="1">Neutral</div><div class="radio-inline"><input type="radio" name="response"  value="3">Positive</div><div class="radio-inline"><input name="response" type="radio" value="2">Negative</div><div class="radio-inline"><input name="response" type="radio" value="0">Not Called</div><br>';
+					$data['responsestatus'] .= '<label class="radio-inline"><input type="radio" name="response" value="1">Neutral</label><label class="radio-inline"><input type="radio" name="response"  value="3">Positive</label><label class="radio-inline"><input name="response" type="radio" value="2">Negative</label><label class="radio-inline"><input name="response" type="radio" value="0">Not Called</label><br>';
 					
 					$data['responsestatus'].='<input type="submit" name="submit" value="Update" class="btn btn-success"></form>';
 
